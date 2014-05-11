@@ -1,0 +1,347 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>6.1</ProjectVersion>
+    <ToolchainName>com.Atmel.AVRGCC8.CPP</ToolchainName>
+    <ProjectGuid>{a7856b9d-bce0-4453-bd87-e13a09d0f1e8}</ProjectGuid>
+    <avrdevice>Atmega328p</avrdevice>
+    <avrdeviceseries>none</avrdeviceseries>
+    <OutputType>Executable</OutputType>
+    <Language>CPP</Language>
+    <OutputFileName>$(MSBuildProjectName)</OutputFileName>
+    <OutputFileExtension>.elf</OutputFileExtension>
+    <OutputDirectory>$(MSBuildProjectDirectory)\$(Configuration)</OutputDirectory>
+    <AssemblyName>NikFocusStack</AssemblyName>
+    <Name>NikFocusStack</Name>
+    <RootNamespace>NikFocusStack</RootNamespace>
+    <ToolchainFlavour>Native</ToolchainFlavour>
+    <KeepTimersRunning>true</KeepTimersRunning>
+    <OverrideVtor>false</OverrideVtor>
+    <OverrideVtorValue>exception_table</OverrideVtorValue>
+    <eraseonlaunchrule>0</eraseonlaunchrule>
+    <ProgFlashFromRam>true</ProgFlashFromRam>
+    <RamSnippetAddress>0x20000000</RamSnippetAddress>
+    <CacheFlash>true</CacheFlash>
+    <UncachedRange />
+    <BootSegment>2</BootSegment>
+    <AsfFrameworkConfig>
+      <framework-data xmlns="">
+        <options />
+        <configurations />
+        <files />
+        <documentation help="" />
+        <offline-documentation help="" />
+        <dependencies>
+          <content-extension eid="atmel.asf" uuidref="Atmel.ASF" version="3.8.1" />
+        </dependencies>
+      </framework-data>
+    </AsfFrameworkConfig>
+    <avrtool>com.atmel.avrdbg.tool.simulator</avrtool>
+    <com_atmel_avrdbg_tool_simulator>
+      <ToolOptions xmlns="">
+        <InterfaceProperties>
+          <JtagEnableExtResetOnStartSession>false</JtagEnableExtResetOnStartSession>
+        </InterfaceProperties>
+        <InterfaceName>
+        </InterfaceName>
+      </ToolOptions>
+      <ToolType xmlns="">com.atmel.avrdbg.tool.simulator</ToolType>
+      <ToolNumber xmlns="">
+      </ToolNumber>
+      <ToolName xmlns="">Simulator</ToolName>
+    </com_atmel_avrdbg_tool_simulator>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <ToolchainSettings>
+      <AvrGccCpp>
+  <avrgcc.common.optimization.RelaxBranches>True</avrgcc.common.optimization.RelaxBranches>
+  <avrgcc.common.outputfiles.hex>True</avrgcc.common.outputfiles.hex>
+  <avrgcc.common.outputfiles.lss>True</avrgcc.common.outputfiles.lss>
+  <avrgcc.common.outputfiles.eep>True</avrgcc.common.outputfiles.eep>
+  <avrgcc.common.outputfiles.srec>True</avrgcc.common.outputfiles.srec>
+  <avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>True</avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>
+  <avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>
+  <avrgcc.compiler.symbols.DefSymbols>
+    <ListValues>
+      <Value>NDEBUG</Value>
+      <Value>F_CPU=16000000</Value>
+      <Value>ARDUINO=104</Value>
+      <Value>ARDUINO_UNO=1</Value>
+    </ListValues>
+  </avrgcc.compiler.symbols.DefSymbols>
+  <avrgcc.compiler.directories.IncludePaths>
+    <ListValues>
+      <Value>%25ATE_HOME%25\Boards\Uno\Headers</Value>
+    </ListValues>
+  </avrgcc.compiler.directories.IncludePaths>
+  <avrgcc.compiler.optimization.level>Optimize for size (-Os)</avrgcc.compiler.optimization.level>
+  <avrgcc.compiler.optimization.PackStructureMembers>True</avrgcc.compiler.optimization.PackStructureMembers>
+  <avrgcc.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcc.compiler.optimization.AllocateBytesNeededForEnum>
+  <avrgcc.compiler.warnings.AllWarnings>True</avrgcc.compiler.warnings.AllWarnings>
+  <avrgcccpp.compiler.general.ChangeDefaultCharTypeUnsigned>True</avrgcccpp.compiler.general.ChangeDefaultCharTypeUnsigned>
+  <avrgcccpp.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcccpp.compiler.general.ChangeDefaultBitFieldUnsigned>
+  <avrgcccpp.compiler.symbols.DefSymbols>
+    <ListValues>
+      <Value>NDEBUG</Value>
+      <Value>F_CPU=16000000</Value>
+      <Value>ARDUINO=104</Value>
+      <Value>ARDUINO_UNO=1</Value>
+    </ListValues>
+  </avrgcccpp.compiler.symbols.DefSymbols>
+  <avrgcccpp.compiler.directories.IncludePaths>
+    <ListValues>
+      <Value>%25ATE_HOME%25\Boards\Uno\Headers</Value>
+      <Value>C:\projects\embedded\arduino\NikFocusStack\libs\USB_Host_Shield_2.0</Value>
+      <Value>C:\projects\embedded\arduino\NikFocusStack\libs\PTP_2.0</Value>
+    </ListValues>
+  </avrgcccpp.compiler.directories.IncludePaths>
+  <avrgcccpp.compiler.optimization.level>Optimize for size (-Os)</avrgcccpp.compiler.optimization.level>
+  <avrgcccpp.compiler.optimization.PackStructureMembers>True</avrgcccpp.compiler.optimization.PackStructureMembers>
+  <avrgcccpp.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcccpp.compiler.optimization.AllocateBytesNeededForEnum>
+  <avrgcccpp.compiler.warnings.AllWarnings>True</avrgcccpp.compiler.warnings.AllWarnings>
+  <avrgcccpp.compiler.miscellaneous.OtherFlags>-fstack-usage</avrgcccpp.compiler.miscellaneous.OtherFlags>
+  <avrgcccpp.linker.libraries.Libraries>
+    <ListValues>
+      <Value>libm</Value>
+      <Value>libArduinoCore</Value>
+      <Value>libWire.a</Value>
+      <Value>libusb2Host.a</Value>
+      <Value>libptp2.a</Value>
+    </ListValues>
+  </avrgcccpp.linker.libraries.Libraries>
+  <avrgcccpp.linker.libraries.LibrarySearchPaths>
+    <ListValues>
+      <Value>%25ATE_HOME%25\Boards\Uno\Libs\16</Value>
+      <Value>C:\Users\Ketil\Documents\Arduino Template Express\Boards\Uno\Libs\16</Value>
+      <Value>C:\projects\embedded\arduino\NikFocusStack\libs\USB_Host_Shield_2.0\Release</Value>
+      <Value>C:\projects\embedded\arduino\NikFocusStack\libs\PTP_2.0\Release</Value>
+    </ListValues>
+  </avrgcccpp.linker.libraries.LibrarySearchPaths>
+  <avrgcccpp.linker.memorysettings.Comment>&lt;segmentname&gt;=&lt;address&gt;, for example  .boot=0xff</avrgcccpp.linker.memorysettings.Comment>
+</AvrGccCpp>
+    </ToolchainSettings>
+    <PreBuildEvent>..\scripts\prebuild.bat "$(MSBuildProjectName)" "$(OutputFileName)$(OutputFileExtension)" $(avrdevice) $(Configuration) "$(MSBuildProjectFile)" "$(SolutionDir)" "$(MSBuildProjectDirectory)\" "F1" "F2"</PreBuildEvent>
+    <PostBuildEvent>..\scripts\postbuild.bat "$(MSBuildProjectFullPath)" "$(MSBuildProjectName)" "$(OutputFileName)$(OutputFileExtension)" $(avrdevice) $(Configuration) "$(MSBuildProjectFile)" "$(SolutionDir)" "$(MSBuildProjectDirectory)\"</PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <ToolchainSettings>
+      <AvrGccCpp>
+  <avrgcc.common.optimization.RelaxBranches>True</avrgcc.common.optimization.RelaxBranches>
+  <avrgcc.common.outputfiles.hex>True</avrgcc.common.outputfiles.hex>
+  <avrgcc.common.outputfiles.lss>True</avrgcc.common.outputfiles.lss>
+  <avrgcc.common.outputfiles.eep>True</avrgcc.common.outputfiles.eep>
+  <avrgcc.common.outputfiles.srec>True</avrgcc.common.outputfiles.srec>
+  <avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>True</avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>
+  <avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>
+  <avrgcc.compiler.symbols.DefSymbols>
+    <ListValues>
+      <Value>DEBUG</Value>
+      <Value>F_CPU=16000000</Value>
+      <Value>ARDUINO=104</Value>
+      <Value>ARDUINO_UNO=1</Value>
+    </ListValues>
+  </avrgcc.compiler.symbols.DefSymbols>
+  <avrgcc.compiler.directories.IncludePaths>
+    <ListValues>
+      <Value>%25ATE_HOME%25\Boards\Uno\Headers</Value>
+    </ListValues>
+  </avrgcc.compiler.directories.IncludePaths>
+  <avrgcc.compiler.optimization.level>Optimize (-O1)</avrgcc.compiler.optimization.level>
+  <avrgcc.compiler.optimization.PackStructureMembers>True</avrgcc.compiler.optimization.PackStructureMembers>
+  <avrgcc.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcc.compiler.optimization.AllocateBytesNeededForEnum>
+  <avrgcc.compiler.optimization.DebugLevel>Default (-g2)</avrgcc.compiler.optimization.DebugLevel>
+  <avrgcc.compiler.warnings.AllWarnings>True</avrgcc.compiler.warnings.AllWarnings>
+  <avrgcccpp.compiler.general.ChangeDefaultCharTypeUnsigned>True</avrgcccpp.compiler.general.ChangeDefaultCharTypeUnsigned>
+  <avrgcccpp.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcccpp.compiler.general.ChangeDefaultBitFieldUnsigned>
+  <avrgcccpp.compiler.symbols.DefSymbols>
+    <ListValues>
+      <Value>DEBUG</Value>
+      <Value>F_CPU=16000000</Value>
+      <Value>ARDUINO=104</Value>
+      <Value>ARDUINO_UNO=1</Value>
+    </ListValues>
+  </avrgcccpp.compiler.symbols.DefSymbols>
+  <avrgcccpp.compiler.directories.IncludePaths>
+    <ListValues>
+      <Value>%25ATE_HOME%25\Boards\Uno\Headers</Value>
+      <Value>C:\projects\embedded\arduino\NikFocusStack\libs\USB_Host_Shield_2.0</Value>
+      <Value>C:\projects\embedded\arduino\NikFocusStack\libs\PTP_2.0</Value>
+    </ListValues>
+  </avrgcccpp.compiler.directories.IncludePaths>
+  <avrgcccpp.compiler.optimization.level>Optimize (-O1)</avrgcccpp.compiler.optimization.level>
+  <avrgcccpp.compiler.optimization.PackStructureMembers>True</avrgcccpp.compiler.optimization.PackStructureMembers>
+  <avrgcccpp.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcccpp.compiler.optimization.AllocateBytesNeededForEnum>
+  <avrgcccpp.compiler.optimization.DebugLevel>Default (-g2)</avrgcccpp.compiler.optimization.DebugLevel>
+  <avrgcccpp.compiler.warnings.AllWarnings>True</avrgcccpp.compiler.warnings.AllWarnings>
+  <avrgcccpp.linker.libraries.Libraries>
+    <ListValues>
+      <Value>libm</Value>
+      <Value>libArduinoCore</Value>
+      <Value>libWire.a</Value>
+      <Value>libusb2Host.a</Value>
+      <Value>libptp2.a</Value>
+    </ListValues>
+  </avrgcccpp.linker.libraries.Libraries>
+  <avrgcccpp.linker.libraries.LibrarySearchPaths>
+    <ListValues>
+      <Value>%25ATE_HOME%25\Boards\Uno\Libs\16</Value>
+      <Value>C:\Users\Ketil\Documents\Arduino Template Express\Boards\Uno\Libs\16</Value>
+      <Value>C:\projects\embedded\arduino\NikFocusStack\libs\USB_Host_Shield_2.0\Release</Value>
+      <Value>C:\projects\embedded\arduino\NikFocusStack\libs\PTP_2.0\Release</Value>
+    </ListValues>
+  </avrgcccpp.linker.libraries.LibrarySearchPaths>
+  <avrgcccpp.linker.memorysettings.Comment>&lt;segmentname&gt;=&lt;address&gt;, for example  .boot=0xff</avrgcccpp.linker.memorysettings.Comment>
+  <avrgcccpp.assembler.debugging.DebugLevel>Default (-Wa,-g)</avrgcccpp.assembler.debugging.DebugLevel>
+</AvrGccCpp>
+    </ToolchainSettings>
+    <PreBuildEvent>..\scripts\prebuild.bat "$(MSBuildProjectName)" "$(OutputFileName)$(OutputFileExtension)" $(avrdevice) $(Configuration) "$(MSBuildProjectFile)" "$(SolutionDir)" "$(MSBuildProjectDirectory)\" "F1" "F2"</PreBuildEvent>
+    <PostBuildEvent>..\scripts\postbuild.bat "$(MSBuildProjectFullPath)" "$(MSBuildProjectName)" "$(OutputFileName)$(OutputFileExtension)" $(avrdevice) $(Configuration) "$(MSBuildProjectFile)" "$(SolutionDir)" "$(MSBuildProjectDirectory)\"</PostBuildEvent>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Button.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Button.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="LcdImpl.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Main.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MessageHandler.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MessageHandler.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="I2CIO.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="I2CIO.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="LCD.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="LCD.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="LiquidCrystal_I2C.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="LiquidCrystal_I2C.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MainMenu.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MainMenu.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MessagePump.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MessagePump.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="NikType003.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="NikType003.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="NikType003State.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="NikType003State.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="RunFocusStackHandler.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="RunFocusStackHandler.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="SetupHandler.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="SetupHandler.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Sketch.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="TimerCB.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="TimerCB.h">
+      <SubType>compile</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Scripts" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="readme.txt">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="Scripts\deploy-fail99.bat">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="Scripts\deploy-success99.bat">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="Scripts\deployfail.bat">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="Scripts\deploysuccess.bat">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="Scripts\local-deploy99.bat">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="Scripts\localdeploy.bat">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="Scripts\makeit.bat">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="Scripts\makeit.xml">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="Scripts\masterbuild.bat">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="Scripts\post-build00.bat">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="Scripts\post-build98.bat">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="Scripts\post-build99.bat">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="Scripts\postbuild.bat">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="Scripts\pre-build00.bat">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="Scripts\pre-build98.bat">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="Scripts\pre-build99.bat">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="Scripts\prebuild.bat">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="Scripts\targetboards.xml">
+      <SubType>compile</SubType>
+    </None>
+  </ItemGroup>
+  <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
+</Project>
