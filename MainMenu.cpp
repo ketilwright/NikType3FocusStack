@@ -95,8 +95,10 @@ MsgResp MainMenuHandler::processMessage(Msg& msg)
     return rsp;
 }
 // Show the main menu, the camera type & connection state.
+extern bool g_usbOK;
 void MainMenuHandler::show()
 {
+	if(!g_usbOK) return;
     IMessageHandler::show();
     g_print->setCursor(0, 0);
     switch(nk3.getProductID())
@@ -122,7 +124,7 @@ void MainMenuHandler::show()
             break;
         }
     }
-    g_print->print(nk3.isConnected() ? F("Connected") : F("Disconnected"));
+    g_print->print(nk3.isConnected() ? F("connected") : F("disconnected"));
 }
 
 

@@ -19,6 +19,8 @@
  */
 
 // Usb & ptp includes
+//#define ARDUINO_SAM_DUE 
+//#define __SAM3X8E__
 #include <Usb.h>
 #include <usbhub.h>
 #include <ptp.h>
@@ -38,6 +40,12 @@
 //  LCD is currently using I2c. It should be possible and easy
 //  to replace this with other liquid crystal libraries,
 //  eg MaxLCD.
+
+// Sainsmart 
+// SDA -> Analog 4
+// SCL -> Analog 5
+
+
 #define I2C_ADDR 0x27 // docs incorrectly indicate 0x3f
 #define BACKLIGHT_PIN 3
 #define En_pin 2
@@ -108,6 +116,7 @@ Button* buttons[5] = {&buttonLeft, &buttonRight, &buttonUp, &buttonDown, &button
 void configureLCD()
 {
     lcd.begin (20,4,LCD_5x8DOTS);
+	//lcd.begin(16,2, LCD_5x8DOTS);
 	lcd.setBacklightPin(BACKLIGHT_PIN,POSITIVE);
 	lcd.setBacklight(HIGH);
 }
@@ -152,8 +161,12 @@ void enableButtonInterrupts()
 // eeprom storage
 #include <avr/eeprom.h>
 
+uint16_t EEMEM ePromFocusAmount = 999;
+uint8_t  EEMEM ePromNumFrames = 4;
+
 uint16_t g_savedFocusAmount = 0;
 uint8_t g_savedNumFrames = 2;
+bool g_usbOK = true;
 
 void setup()
 {
@@ -161,22 +174,17 @@ void setup()
 	Serial.begin( 115200 );
     configureLCD();
     delay( 200 );
-	if (Usb.Init() == -1) { Serial.println("OSC did not start."); }
+	if (Usb.Init() == -1) 
+	{ 
+		Serial.println("OSC did not start."); 
+		g_print->print("USB did not start.");
+		g_usbOK = false;
+	}
     enableButtonInterrupts();
-    uint16_t focAmt = eeprom_read_word(&g_savedFocusAmount);
-    uint8_t nFrames = eeprom_read_byte(&g_savedNumFrames);
-    if(0 != focAmt)
-    {
-        g_setup.setDriveAmount(focAmt);
-    }
-    if(0 != nFrames)
-    {
-        g_setup.setNumFrames(nFrames);
-    }
-    Serial.print("foc amt: "); Serial.print(focAmt);
-    Serial.print("nFrames "); Serial.print(nFrames); Serial.println();
-
-
+	g_savedFocusAmount = eeprom_read_word(&ePromFocusAmount);
+	g_savedNumFrames = eeprom_read_byte(&ePromNumFrames);
+	g_setup.setDriveAmount(g_savedFocusAmount);
+	g_setup.setNumFrames(g_savedNumFrames);
 
 }
 

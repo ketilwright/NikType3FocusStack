@@ -25,6 +25,9 @@
 extern uint16_t g_savedFocusAmount;
 extern uint8_t g_savedNumFrames;
 
+extern uint16_t EEMEM ePromFocusAmount;
+extern uint8_t  EEMEM ePromNumFrames;
+
 extern IMessageHandler *g_pMain;
 SetupHandler::SetupHandler(MessagePump *_pump, uint32_t driveAmount, uint32_t frames)
     :
@@ -147,9 +150,17 @@ MsgResp SetupHandler::processMessage(Msg& msg)
                 {
                     if(eButtonActionPress == msg.m_type)
                     {
-                        // write the current setting to the eprom
-                        eeprom_write_word(&g_savedFocusAmount, m_driveAmount);
-                        eeprom_write_byte(&g_savedNumFrames, m_numFrames);
+                        // write the current setting to the eprom if they have changed
+						uint16_t savedFocusAmt = eeprom_read_word(&ePromFocusAmount);
+						if(savedFocusAmt != m_driveAmount)
+						{
+							eeprom_write_word(&ePromFocusAmount, m_driveAmount);
+						}
+						uint8_t savedNumFrames = eeprom_read_byte(&ePromNumFrames);
+						if(savedNumFrames != m_numFrames)
+						{
+							eeprom_write_byte(&ePromNumFrames, m_numFrames);
+						}
                         msg.m_nextHandler = g_pMain;
                         rsp = eSuccess;
                     }

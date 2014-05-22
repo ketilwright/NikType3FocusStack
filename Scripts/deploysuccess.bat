@@ -17,5 +17,5 @@ set FILE_PATTERN=deploy-success*.bat
 REM - Exectue all batch files matching filepattern in descending order
 FOR /F "tokens=*" %%G IN ('dir /b %FILE_PATTERN% /O-N') DO (
 	call %%G %1 %2 %3 %4 %5 %6 %7 
-	rem echo %%G  %1 %2 %3 %4 %5 %6 %7
+	echo %%G  %1 %2 %3 %4 %5 %6 %7
 )
